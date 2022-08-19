@@ -75,6 +75,9 @@ properties:
                     valorDesconto:
                       type: number
                       description: Valor desconto concedido total
+                    percentualDescontoNovoPaciente:
+                      type: number
+                      description: Percentual desconto novo paciente
                     msg:
                       type: string
                       description: Mensagem de retorno

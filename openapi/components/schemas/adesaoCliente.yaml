@@ -5,7 +5,7 @@ properties:
     description: Indica qual é a decisão que o hub deve tomar ao receber o retono dos pbms (sempre 1)
     type: number
     example:
-      - 1
+      1
   loja:
     description: Informações referente a Loja que fez a solicitação
     type: object
@@ -14,12 +14,12 @@ properties:
         description: CNPJ Loja (sempre 88212113000100) sem pontuação
         type: string
         example:
-          - 88212113000100
+          "88212113000100"
       canalSolicitante:
         description: Canal solicitante do HUB (sempre 2)
         type: number
         example:
-          - 2
+          2
   cliente:
     description: Informações referente a cliente
     type: object
@@ -28,63 +28,63 @@ properties:
         description: Nome do cliente
         type: string
         example:
-          - exemplo de nome
+          "Fulano de Tal"
       dataNascimento:
         description: Data de nascimento do cliente
         type: string
         format: date-time
         example:
-          - '1988-07-06T11:04:00.001Z'
+          "1988-07-06T11:04:00.001Z"
       sexo:
         description: Sexo do cliente 0 ou 1
         type: number
         example:
-          - 0
+          0
       telefone:
         description: Telefone do cliente
         type: string
         example:
-          - 5433119455
+          "5433119455"
       celular:
         description: Celular do cliente
         type: string
         example:
-          - 5433119455
+          "5433119455"
       email:
         description: Email do cliente
         type: string
         example:
-          - testemail@gmail.com
+          "testemail@gmail.com"
       cep:
         description: Cep do cliente sem pontuação
         type: string
         example:
-          - 99074000
+          "99074000"
       cidade:
         description: Nome da cidade do cliente
         type: string
         example:
-          - Passo Fundo
+          "Passo Fundo"
       regiao:
         description: Região aonde o cliente mora
         type: string
         example:
-          - 99074000
+          "99074000"
       tipoEndereco:
         description: Tipo endereco cliente
         type: string
         example:
-          - Apto
+          "Apto"
       rua:
         description: Rua do cliente
         type: string
         example:
-          - Av Brasil
+          "Av Brasil"
       numero:
         description: numero da casa ou apto do cliente
         type: string
         example:
-          - 100
+          "100"
       convenioClienteWrapper:
         description: Operadora do Convênio (neste caso a TRN)
         type: object
@@ -97,22 +97,22 @@ properties:
                 description: tipo do cadastro do cliente (1-Cpf 2-cardIdOperator 3- com cardIdCompany 4- cardId)
                 type: number
                 example:
-                  - 3
+                  3
               cartao:
                 description: id do cartão do cliente (cardId)
                 type: string
                 example:
-                  - 000000000
+                  "000000000"
               operadora:
                 description: id do empresa do cartão do cliente
                 type: string
                 example:
-                  - 000000000
+                  "000000000"
       situacaoCadastro:
         description: Situação do Cadastro do Cliente ("0" -para clientes cadastrados  "1" -pra clientes sem cadastro "2" -para clientes pendentes)
         type: number
         example:
-          - 0
+          0
   produtoList:
     description: Array de produtos a serem cadastrados no PBM para o cliente passado por parâmetro
     type: array
@@ -123,22 +123,22 @@ properties:
           description: Código EAN do produto
           type: string
           example:
-            - 7897411610606
+            "7897411610606"
         qtde:
           description: Quantidade solicitada do produto
           type: number
           example:
-            - 4
+            4
         precoBruto:
           description: preço bruto do produto
           type: number
           example:
-            - 30.00
+            50.33
         precoLiquido:
           description: preço liquido do produto
           type: number
           example:
-            - 45.00
+            45.54
   receita:
     description: receita referente aos medicamentos solicitados
     type: object
@@ -147,19 +147,19 @@ properties:
         description: Conselho. 1-CRM / 2-CRO
         type: number
         example:
-          - 1
+          1
       numeroConselho:
         description: numero de indentificação do médico
         type: number
         example:
-          - 69254
+          69254
       uf:
         description: Uf do médico
         type: string
         example:
-          - RS
+          "RS"
       nome:
         description: Nome do médico
-        type: number
+        type: string
         example:
-          - exemplo de nome
+          "Fulano de Tal"

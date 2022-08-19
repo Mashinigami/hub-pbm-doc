@@ -3,6 +3,32 @@
 Este documento visa o mapeamento das chamadas e seus respectivos
 retornos com a descrição das variáveis (dos requests e responses) tal como exemplo das mesmas
 
+## Versões doc
+
+### 2.1.3
+
+- Alterado tipo da variavel canalSolicitante de number para string
+- Adicionado variavel de retorno data.produtoList[].produtoRetornoMap.TRN.valorDescontoIndustria
+- Adicionado variavel de retorno data.produtoList[].produtoRetornoMap.TRN.percentualDescontoAutorizado
+- Adicionado variavel de retorno data.produtoList[].produtoRetornoMap.TRN.valorDescontoAdicionalMultiplicado
+- Adicionado variavel de retorno data.produtoList[].produtoRetornoMap.TRN.percentualDescontoUnitario
+
+### 2.1.2
+
+- Adicionado variavel de envio receita.nomeMedico (fluxo intencao compra)
+- Adicionado variavel de envio receita.uf (fluxo intencao compra)
+- Adicionado variavel de envio receita.conselho (fluxo intencao compra)
+- Adicionado variavel de envio receita.numeroConselho (fluxo intencao compra)
+
+### 2.1.1
+
+- Renomeado valorDescontoMaximoNovoPaciente para percentualDescontoNovoPaciente
+
+### 2.1.0
+
+- Adicionado variavel requiredFields.field (nome do campo obrigatório)
+- Adicionado variavel requiredFields.type (tipo do campo obrigatório)
+
 ## Intenção Compra
 
 A intenção de compra compreende em realizar busca dos produtos e saber se os mesmos

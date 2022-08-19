@@ -68,17 +68,17 @@ properties:
                     description: tipo do cadastro do cliente (1-Cpf 2-cardIdOperator 3- com cardIdCompany 4- cardId)
                     type: number
                     example:
-                      - 3
+                      3
                   cartao:
                     description: id do cartão do cliente (cardId)
                     type: string
                     example:
-                      - 000000000
+                      "000000000"
                   operadora:
                     description: id do empresa do cartão do cliente
                     type: string
                     example:
-                      - 000000000
+                      "000000000"
       produtoList:
         type: array
         description: Informações de produtos
@@ -110,6 +110,18 @@ properties:
                     percentualDesconto:
                       type: number
                       description: Percentual desconto Concedido
+                    valorDescontoIndustria:
+                      type: number
+                      description: Valor desconto concedido industria
+                    percentualDescontoAutorizado:
+                      type: number
+                      description: Percentual desconto autorizado
+                    valorDescontoAdicionalMultiplicado:
+                      type: number
+                      description: Valor desconto adicional multiplicado
+                    percentualDescontoUnitario:
+                      type: number
+                      description: Percentual desconto unitario
                     status:
                       type: number
                       description: status do produto indicando aprovação do pedido

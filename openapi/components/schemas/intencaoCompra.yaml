@@ -17,10 +17,10 @@ properties:
         example:
           "01234567000100"
       canalSolicitante:
-        description: Canal solicitante do HUB (sempre 2)
-        type: number
+        description: Canal solicitante do HUB
+        type: string
         example:
-          2
+          "SITE"
       comunicacao:
         description: Informações de controle de pbm
         type: object
@@ -193,3 +193,27 @@ properties:
           format: float
           example:
             45.99
+  receita:
+    description: Caso necessário receita do produto
+    type: object
+    properties:
+      nomeMedico:
+        description: Nome do médico
+        type: string
+        example:
+          "Fulano de tal"
+      uf:
+        description: UF do Conselho
+        type: string
+        example:
+          "RS"
+      conselho:
+        description: Conselho. 0-CRM 1-CRO
+        type: number
+        example:
+          0
+      numeroConselho:
+        description: Numero do conselho
+        type: number
+        example:
+          123456

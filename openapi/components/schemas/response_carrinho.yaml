@@ -78,6 +78,18 @@ properties:
                     percentualDesconto:
                       type: number
                       description: Percentual desconto Concedido
+                    valorDescontoIndustria:
+                      type: number
+                      description: Valor desconto concedido industria
+                    percentualDescontoAutorizado:
+                      type: number
+                      description: Percentual desconto autorizado
+                    valorDescontoAdicionalMultiplicado:
+                      type: number
+                      description: Valor desconto adicional multiplicado
+                    percentualDescontoUnitario:
+                      type: number
+                      description: Percentual desconto unitario
                     status:
                       type: number
                       description: status do produto indicando aprovação do pedido
