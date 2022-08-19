@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Confirmar Pré-autorizacao
+  summary: Efetivar produto no programa de PBM
+  description: Reponsável por efetivar/finalizar o fluxo de compra de produtos com os descontos oferecidos pelo programa de PBM
+  operationId: hubConfirmaPreAutorizar
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/efetiva.yaml
+    required: true
+  responses:
+    200:
+      description: Sucesso ao efetivar os produtos no programa de PBM
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/response_efetiva.yaml
+    428:
+      description: ocorreu erro ao efetivar os produtos no programa de PBM
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/response_efetiva.yaml

@@ -1,0 +1,5 @@
+description: Retorno intenção compra consulta produto sem adesão
+content:
+  application/problem+json:
+    schema:
+      $ref: ../schemas/response_primeiroConsultaProduto.yaml

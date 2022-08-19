@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Pré-Autorizacao
+  summary: Salva os produtos no carrinho do PBM
+  description: Reponsável por salvar os produtos selecionados pelo cliente no carrinho do programa de PBM para poder posteriormente enviar a efetivação dos mesmos
+  operationId: hubPreAutorizar
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/carrinho.yaml
+    required: true
+  responses:
+    200:
+      description: carrinho salvo com sucesso
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/response_carrinho.yaml
+    428:
+      description: ocorreu erro ao salvar o carrinho
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/response_carrinho.yaml

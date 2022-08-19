@@ -1,0 +1,26 @@
+post:
+  tags:
+    - Adesao cliente
+  summary: Efetiva a adesão do cliente no programa de PBM
+  description: Reponsável efetuar a adesão de clientes no programa de PBM, para poder prosseguir com os descontos.
+  operationId: adesaoCliente
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/adesaoCliente.yaml
+    description: requestBody description
+    required: true
+  responses:
+    200:
+      description: sucesso ao consultar o desconto para os produtos enviados
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/response_consultaDesconto.yaml
+    428:
+      description: ocorreu erro ao salvar o carrinho
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/response_carrinho.yaml

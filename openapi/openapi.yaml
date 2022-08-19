@@ -1,0 +1,27 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: FSJ-HUB-API
+  license:
+    name: Apache 2.0
+    url: 'http://www.apache.org/licenses/LICENSE-2.0.html'
+  x-logo:
+    url: 'https://www.saojoaofarmacias.com.br/assets/images/logo.png'
+  description:
+    $ref: ./info-description.md
+tags:
+  - name: Intencao compra
+    description: Gerar intencao dos produtos.
+  - name: Pré-Autorizacao
+    description: Pre-autorizar os produtos que se encontram no carrinho do cliente para buscar os descontos atuais dos laboratórios.
+  - name: Confirmar Pré-autorizacao
+    description: Confirmar os produtos pré-autorizados no carrinho.
+servers:
+  - url: 'https://example.com/api'
+paths:
+  /hubIntencaoCompra:
+    $ref: paths/intencaoCompra.yaml
+  /hubPreAutorizar:
+    $ref: paths/carrinho.yaml
+  /hubConfirmaPreAutorizar:
+    $ref: paths/efetiva.yaml

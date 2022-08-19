@@ -1,0 +1,101 @@
+type: object
+title: Pre-autorização
+properties:
+  tipoRetorno:
+    description: Indica qual é a decisão que o hub deve tomar ao receber o retono dos pbms (sempre 1)
+    type: number
+    example:
+      1
+  loja:
+    description: Informações referente a Loja que fez a solicitação
+    type: object
+    required: ["cnpj", "canalSolicitante", "comunicacao"]
+    properties:
+      cnpj:
+        description: CNPJ Loja sem pontuação
+        type: string
+        example:
+          "01234567000100"
+      canalSolicitante:
+        description: Canal solicitante do HUB (sempre 2)
+        type: number
+        example:
+          2
+      comunicacao:
+        description: Informações de controle de pbm
+        type: object
+        required: ["TRN"]
+        properties:
+          TRN:
+            description: Informações de controle do pbm TRN
+            type: object
+            required: ["terminal"]
+            properties:
+              terminal:
+                description: Numero do ponto de venda ou estação de trabalho onde foi realizado a compra
+                type: string
+                example:
+                  "001"
+  cliente:
+    description: Informações referente a cliente
+    type: object
+    required: ["cpfCnpj", "convenioClienteWrapper"]
+    properties:
+      cpfCnpj:
+        description: Cpf/cnpj do cliente sem pontuação
+        type: string
+        example:
+          "96740081794"
+      convenioClienteWrapper:
+        description: Objeto com as informações do cliente referente à operadora de convênio
+        type: object
+        required: ["TRN"]
+        properties:
+          TRN:
+            description: Objeto com informações do cliente referente à operadora TRN
+            type: object
+            properties:
+              tipoCadastro:
+                description: (0-Programa 1-Empresa Convenio 2-Operadora de Saude)
+                type: number
+                example:
+                  0
+              cartao:
+                description: Cartão do programa, ou matricula da empresa consumidor, ou cartão do consumidor na Operadora de Saúde
+                type: string
+                example:
+                  "00000000000000000"
+              operadora:
+                description: Identificação da empresa conveniada, ou identificador do plano, seguro ou operada de saúde.
+                type: string
+                example:
+                  "00000000"
+  produtoList:
+    description: Array de produtos a serem autorizados no PBM
+    type: array
+    items:
+      type: object
+      required: ["codBarras", "qtde", "precoBruto", "precoLiquido"]
+      properties:
+        codBarras:
+          description: Código EAN do produto
+          type: string
+          example:
+            "7897411610606"
+        qtde:
+          description: Quantidade solicitada do produto
+          type: number
+          example:
+            4
+        precoBruto:
+          description: Preço bruto do produto
+          type: number
+          format: float
+          example:
+            50.99
+        precoLiquido:
+          description: Preço liquido do produto
+          type: number
+          format: float
+          example:
+            45.99

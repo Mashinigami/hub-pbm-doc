@@ -1,0 +1,195 @@
+type: object
+title: Intenção Compra
+properties:
+  tipoRetorno:
+    description: Indica qual é a decisão que o hub deve tomar ao receber o retono dos pbms (sempre 1)
+    type: number
+    example:
+      1
+  loja:
+    description: Informações referente a Loja que fez a solicitação
+    type: object
+    required: ["cnpj", "canalSolicitante", "comunicacao"]
+    properties:
+      cnpj:
+        description: CNPJ Loja sem pontuação
+        type: string
+        example:
+          "01234567000100"
+      canalSolicitante:
+        description: Canal solicitante do HUB (sempre 2)
+        type: number
+        example:
+          2
+      comunicacao:
+        description: Informações de controle de pbm
+        type: object
+        required: ["TRN"]
+        properties:
+          TRN:
+            description: Informações de controle do pbm TRN
+            type: object
+            required: ["terminal"]
+            properties:
+              terminal:
+                description: Numero do ponto de venda ou estação de trabalho onde foi realizado a compra
+                type: string
+                example:
+                  "001"
+  cliente:
+    description: Informações referente a cliente
+    type: object
+    required: ["cpfCnpj", "convenioClienteWrapper"]
+    properties:
+      cpfCnpj:
+        description: Cpf/cnpj do cliente sem pontuação
+        type: string
+        example:
+          "96740081794"
+      nome:
+        description: Nome do cliente
+        type: string
+        example:
+          "Fulano da Silva"
+      dataNascimento:
+        description: Data de nascimento do cliente em formato ISO 8601
+        type: string
+        format: date-time
+        example:
+          "1988-07-06T11:04:00.001Z"
+      sexo:
+        description: Sexo do cliente, 0 masculino, 1 feminino
+        type: number
+        example:
+          0
+      telefone:
+        description: Telefone do cliente
+        type: string
+        example:
+          "054988889999"
+      email:
+        description: Email do cliente
+        type: string
+        example:
+          "testemail@gmail.com"
+      cep:
+        description: Cep do cliente sem pontuação
+        type: string
+        example:
+          "99074000"
+      cidade:
+        description: Cidade do cliente
+        type: string
+        example:
+          "Passo Fundo"
+      bairro:
+        description: Bairro aonde o cliente mora
+        type: string
+        example:
+          "Centro"
+      tipoEndereco:
+        description: Tipo endereco cliente (Avenida, Alameda, Estrada, Praça, Rua, Rodovia, Travessa, Largo)
+        type: string
+        example:
+          "Rua"
+      logradouro:
+        description: Logradouro do cliente
+        type: string
+        example:
+          "Paissandú"
+      numero:
+        description: Numero do endereço
+        type: string
+        example:
+          "100"
+      complemento:
+        description: Complemento do endereço
+        type: string
+        example:
+          "Apto 601"
+      convenioClienteWrapper:
+        description: Objeto com as informações do cliente referente à operadora de convênio
+        type: object
+        required: ["TRN"]
+        properties:
+          TRN:
+            description: Objeto com informações do cliente referente à operadora TRN
+            type: object
+            properties:
+              tipoCadastro:
+                description: (0-Programa 1-Empresa Convenio 2-Operadora de Saude)
+                type: number
+                example:
+                  1
+              cartao:
+                description: Cartão do programa, ou matricula da empresa consumidor, ou cartão do consumidor na Operadora de Saúde
+                type: string
+                example:
+                  "00000000000000000"
+              operadora:
+                description: Identificação da empresa conveniada, ou identificador do plano, seguro ou operada de saúde.
+                type: string
+                example:
+                  "00000000"
+      termoWrapper:
+        description: Objeto com as informações de aceite de termos
+        type: object
+        properties:
+          aceiteIndustria:
+            description: Aceite do termo da industria
+            type: number
+            example:
+              1
+          aceiteMaterialInformativo:
+            description: Aceite do termo de material informativo
+            type: number
+            example:
+              0
+          aceiteCorreio:
+            description: Aceite do termo para envio de correspondência
+            type: number
+            example:
+              0
+          aceiteEmail:
+            description: Aceite do termo para envio de email
+            type: number
+            example:
+              0
+          aceiteTelefone:
+            description: Aceite do termo para ligações telefonicas
+            type: number
+            example:
+              0
+          aceiteSMS:
+            description: Aceite do termo para mensagens de texto
+            type: number
+            example:
+              0
+  produtoList:
+    description: Array de produtos a serem autorizados no PBM
+    type: array
+    items:
+      type: object
+      properties:
+        codBarras:
+          description: Código EAN do produto
+          type: string
+          example:
+            "7897411610606"
+        qtde:
+          description: Quantidade solicitada do produto
+          type: number
+          example:
+            4
+        precoBruto:
+          description: Preço bruto do produto
+          type: number
+          format: float
+          example:
+            50.99
+        precoLiquido:
+          description: Preço liquido do produto
+          type: number
+          format: float
+          example:
+            45.99

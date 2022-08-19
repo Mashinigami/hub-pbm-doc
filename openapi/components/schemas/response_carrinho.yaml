@@ -1,0 +1,95 @@
+type: object
+title: response Carrinho
+properties:
+  status:
+    type: string
+    enum:
+      - 200 OK
+      - 428 PRECONDITION_REQUIRED
+  message:
+    type: string
+    description: retornos apresentados pelo HUB representando sucesso ou erro
+  messages:
+    type: array
+    description: retornos apresentados da Api FSJ (caso ocorra algum erro)
+    items:
+      type: string
+  messagesMapPbm:
+    type: object
+    properties:
+      TRN:
+        type: array
+        description: retornos apresentados pelo programa de pbm (Ex. nome invalido, informações de medico invalidas,
+          é necessário cpf para esta consulta...)
+        items:
+          type: string
+  data:
+    type: object
+    properties:
+      id:
+        type: string
+        description: Id do carrinho retornado do HUB
+      loja:
+        description: Informações referente a Loja que fez a solicitação
+        type: object
+        properties:
+          cnpj:
+            type: string
+            description: CNPJ Loja
+          comunicacao:
+            type: object
+            description: Operadora do Convênio
+            properties:
+              TRN:
+                type: object
+                description: Operadora do Convênio
+                properties:
+                  terminal:
+                    type: string
+                    description: Código Terminal
+      produtoList:
+        type: array
+        description: Informações de produtos
+        items:
+          type: object
+          properties:
+            id:
+              type: number
+              description: ID
+            codBarras:
+              type: string
+              description: Código de Barras
+            produtoRetornoMap:
+              type: object
+              description: Informações de produtos
+              properties:
+                TRN:
+                  type: object
+                  properties:
+                    pbm:
+                      type: string
+                      description: Cotacao de qual PBM
+                    qtdeAprovado:
+                      type: number
+                      description: Quantidade aprovado pelo convênio
+                    valorDesconto:
+                      type: number
+                      description: Valor desconto calculado pelo programa de PBM (em cima do valor bruto do produto)
+                    percentualDesconto:
+                      type: number
+                      description: Percentual desconto Concedido
+                    status:
+                      type: number
+                      description: status do produto indicando aprovação do pedido
+                    cnpjPrograma:
+                      type: string
+                      description: CNPJ do programa (indústria, mpresa de saúde, entre outros) que autorizou o desconto
+                    msg:
+                      type: string
+                      description: Mensagem de retorno
+  pbm:
+    type: string
+    enum:
+      - TRN
+  statusCode:
+    type: number

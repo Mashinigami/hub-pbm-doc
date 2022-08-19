@@ -1,0 +1,32 @@
+type: object
+title: response adesão cliente
+properties:
+  status:
+    type: string
+    enum:
+      - 200 OK
+      - 428 PRECONDITION_REQUIRED
+  message:
+    type: string
+    description: retornos apresentados pelo HUB representando sucesso ou erro
+  messages:
+    type: array
+    description: retornos apresentados da Api FSJ (caso ocorra algum erro)
+    items:
+      type: string
+  messagesMapPbm:
+    type: object
+    properties:
+      TRN:
+        type: array
+        description:
+          retornos apresentados pelo programa de pbm (Ex. nome invalido, informações de medico invalidas,
+          é necessário cpf para esta consulta...)
+        items:
+          type: string
+  pbm:
+    type: string
+    enum:
+      - TRN
+  statusCode:
+    type: number

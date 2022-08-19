@@ -1,0 +1,56 @@
+type: object
+title: Efetiva venda
+properties:
+  id:
+    description: Identificação do carrinho retornado anteriormente do HUB
+    type: string
+    example:
+      "5d5f41d6-79c3-4bf6-81aa-60f4fde2451b"
+  loja:
+    description: Informações referente a Loja que fez a solicitação
+    type: object
+    properties:
+      cnpj:
+        description: CNPJ Loja sem pontuação
+        type: string
+        example:
+          "01234567000100"
+      canalSolicitante:
+        description: Canal solicitante do HUB (sempre 2)
+        type: number
+        example:
+          2
+      comunicacao:
+        description: Informações de controle de pbm
+        type: object
+        required: ["TRN"]
+        properties:
+          TRN:
+            description: Informações de controle do pbm TRN
+            type: object
+            properties:
+              terminal:
+                description: Numero do ponto de venda ou estação de trabalho onde foi realizado a compra
+                type: string
+                example:
+                  "001"
+  cliente:
+    description: Informações referente a cliente
+    type: object
+    properties:
+      cpfCnpj:
+        description: Cpf/cnpj do cliente sem pontuação
+        type: string
+        example:
+          "96740081794"
+      convenioClienteWrapper:
+        description: Objeto com as informações do cliente referente à operadora de convênio
+        type: object
+        required: ["TRN"]
+        properties:
+          TRN:
+            description: Objeto com informações do cliente referente à operadora TRN
+            type: object
+            properties:
+              folhaPagamento:
+                description: Indicador de desconto em folha, 0 - não, 1 - sim (se sim, os campos cartao e operadora são obrigatórios com o tipoCadastro = 1, no fluxo do carrinho)
