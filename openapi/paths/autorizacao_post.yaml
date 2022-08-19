@@ -1,0 +1,20 @@
+post:
+  tags:
+    - Autorizacao
+  summary: Finalizar a venda enviando os dados da nota fiscal.
+  description: Reponsável por encerrar a venda confirmando a mesma e enviando os dados de nota fiscal
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/autorizacao_post.yaml
+    required: true
+  responses:
+    200:
+      description: Sucesso ao finalizar a venda
+    400:
+      description: Conferir os campos obrigatórios
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/responses/generic_400.yaml

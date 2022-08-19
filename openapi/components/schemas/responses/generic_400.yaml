@@ -1,19 +1,26 @@
 type: object
-title: response adesão cliente
+title: Response400
 properties:
   status:
     type: string
     enum:
-      - 200 OK
-      - 428 PRECONDITION_REQUIRED
+      - 400 BAD_REQUEST
   message:
     type: string
-    description: retornos apresentados pelo HUB representando sucesso ou erro
+    description: Mensagem geral sobre o processamento da chamada
   messages:
     type: array
-    description: retornos apresentados da Api FSJ (caso ocorra algum erro)
+    description: Mensagens de problemas da request
     items:
       type: string
+    example:
+      [
+          "lojaId é obrigatório",
+          "CNPJ é obrigatório",
+          "IP é obrigatório",
+          "Todos os serviços estão inativos",
+          "Comunicação (TRN) é obrigatório"
+      ]
   messagesMapPbm:
     type: object
     properties:
@@ -30,3 +37,5 @@ properties:
       - TRN
   statusCode:
     type: number
+    example:
+      400

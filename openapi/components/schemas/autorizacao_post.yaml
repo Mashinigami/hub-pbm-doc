@@ -1,5 +1,6 @@
 type: object
-title: Efetiva venda
+title: Autorizacao
+required: ["id", "loja", "cliente", "cupom"]
 properties:
   id:
     description: Identificação do carrinho retornado anteriormente do HUB
@@ -37,6 +38,7 @@ properties:
   cliente:
     description: Informações referente a cliente
     type: object
+    required: ["cpfCnpj"]
     properties:
       cpfCnpj:
         description: Cpf/cnpj do cliente sem pontuação
@@ -51,6 +53,13 @@ properties:
           TRN:
             description: Objeto com informações do cliente referente à operadora TRN
             type: object
-            properties:
-              folhaPagamento:
-                description: Indicador de desconto em folha, 0 - não, 1 - sim (se sim, os campos cartao e operadora são obrigatórios com o tipoCadastro = 1, no fluxo do carrinho)
+  cupom:
+    description: Informações da venda
+    type: object
+    properties:
+      chave:
+        type: string
+        description: Chave da nota fiscal
+      tipoChave:
+        type: number
+        description: Tipo da chave (0 - NFCE, 1 - NFE)

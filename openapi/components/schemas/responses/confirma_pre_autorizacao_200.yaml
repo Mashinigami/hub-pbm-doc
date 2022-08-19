@@ -1,11 +1,10 @@
 type: object
-title: response efetiva
+title: ConfirmaPreAutorizacaoResponse
 properties:
   status:
     type: string
     enum:
       - 200 OK
-      - 428 PRECONDITION_REQUIRED
   message:
     type: string
     description: retornos apresentados pelo HUB representando sucesso ou erro
@@ -55,30 +54,31 @@ properties:
           cpfCnpj:
             description: Cpf/cnpj do cliente sem pontuação
             type: string
-            example: '96740081794'
+            example:
+              "96740081794"
           convenioClienteWrapper:
             description: Operadora do Convênio (neste caso a TRN)
             type: object
             properties:
               TRN:
-                description: nome do objeto (neste caso TRN)
+                description: Objeto com informações do cliente referente à operadora TRN
                 type: object
                 properties:
                   tipoCadastro:
-                    description: tipo do cadastro do cliente (1-Cpf 2-cardIdOperator 3- com cardIdCompany 4- cardId)
+                    description: (0-Programa 1-Empresa Convenio 2-Operadora de Saude 3-Cpf)
                     type: number
                     example:
                       3
                   cartao:
-                    description: id do cartão do cliente (cardId)
+                    description: Cartão do programa, ou matricula da empresa consumidor, ou cartão do consumidor na Operadora de Saúde
                     type: string
                     example:
-                      "000000000"
+                      "00000000000000000"
                   operadora:
-                    description: id do empresa do cartão do cliente
+                    description: Identificação da empresa conveniada, ou identificador do plano, seguro ou operada de saúde.
                     type: string
                     example:
-                      "000000000"
+                      "00000000"
       produtoList:
         type: array
         description: Informações de produtos
@@ -145,3 +145,5 @@ properties:
       - TRN
   statusCode:
     type: number
+    example:
+      200

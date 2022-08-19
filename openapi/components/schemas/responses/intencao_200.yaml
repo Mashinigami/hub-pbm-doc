@@ -1,11 +1,10 @@
 type: object
-title: response consulta de descontos
+title: IntencaoCompraResponse
 properties:
   status:
     type: string
     enum:
       - 200 OK
-      - 428 PRECONDITION_REQUIRED
   message:
     type: string
     description: retornos apresentados pelo HUB representando sucesso ou erro
@@ -19,14 +18,15 @@ properties:
     properties:
       TRN:
         type: array
-        description:
-          retornos apresentados pelo programa de pbm (Ex. nome invalido, informações de medico invalidas,
-          é necessário cpf para esta consulta...)
+        description: Retornos apresentados pelo programa de pbm (Ex. nome invalido, informações de medico invalidas, é necessário cpf para esta consulta...)
         items:
           type: string
   data:
     type: object
     properties:
+      id:
+        type: string
+        description: Id do carrinho retornado do HUB
       loja:
         description: Informações referente a Loja que fez a solicitação
         type: object
@@ -75,22 +75,42 @@ properties:
                       description: Valor desconto calculado pelo programa de PBM (em cima do valor bruto do produto)
                     percentualDesconto:
                       type: number
-                      description: Percentual desconto Concedido
-                    status:
+                      description: Percentual desconto concedido
+                    valorDescontoMaximoNovoPaciente:
                       type: number
-                      description: status do produto indicando aprovação do pedido
-                    cnpjPrograma:
-                      type: string
-                      description: CNPJ do programa (indústria, mpresa de saúde, entre outros) que autorizou o desconto
+                      description: Valor desconto concedido para novos pacientes
                     msg:
                       type: string
                       description: Mensagem de retorno
+                    obrigatorioCpf:
+                      type: number
+                      description: Obrigado informar cpf para autorizar esse produto (0 - não, 1 - sim)
+                    obrigatorioCupom:
+                      type: number
+                      description: Obrigado informar cupom para autorizar esse produto (0 - não, 1 - sim)
+                    permiteAdesao:
+                      type: number
+                      description: Se produto permite adesao (0 - não, 1 - sim)
+                    status:
+                      type: number
+                      description: Status do produto indicando aprovação do pedido
+                    link:
+                      type: string
+                      description: Url com informação do produto
+                    programa:
+                      type: string
+                      description: Nome do programa em que o produto participa
+                    industria:
+                      type: string
+                      description: Nome da indústria
             msgRetorno:
               type: string
-              description: Informa o retorno da consulta do produto, Ex. proxima consulta infomar cpf
+              description: Mensagem de retorno
   pbm:
     type: string
     enum:
       - TRN
   statusCode:
     type: number
+    example:
+      200

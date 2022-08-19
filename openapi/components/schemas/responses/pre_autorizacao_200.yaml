@@ -1,11 +1,10 @@
 type: object
-title: response Carrinho
+title: PreAutorizacaoResponse
 properties:
   status:
     type: string
     enum:
       - 200 OK
-      - 428 PRECONDITION_REQUIRED
   message:
     type: string
     description: retornos apresentados pelo HUB representando sucesso ou erro
@@ -19,8 +18,7 @@ properties:
     properties:
       TRN:
         type: array
-        description: retornos apresentados pelo programa de pbm (Ex. nome invalido, informações de medico invalidas,
-          é necessário cpf para esta consulta...)
+        description: Retornos apresentados pelo programa de pbm (Ex. nome invalido, informações de medico invalidas, é necessário cpf para esta consulta...)
         items:
           type: string
   data:
@@ -78,18 +76,6 @@ properties:
                     percentualDesconto:
                       type: number
                       description: Percentual desconto Concedido
-                    valorDescontoIndustria:
-                      type: number
-                      description: Valor desconto concedido industria
-                    percentualDescontoAutorizado:
-                      type: number
-                      description: Percentual desconto autorizado
-                    valorDescontoAdicionalMultiplicado:
-                      type: number
-                      description: Valor desconto adicional multiplicado
-                    percentualDescontoUnitario:
-                      type: number
-                      description: Percentual desconto unitario
                     status:
                       type: number
                       description: status do produto indicando aprovação do pedido
@@ -99,9 +85,14 @@ properties:
                     msg:
                       type: string
                       description: Mensagem de retorno
+            msgRetorno:
+              type: string
+              description: Informa o retorno da consulta do produto, Ex. proxima consulta infomar cpf
   pbm:
     type: string
     enum:
       - TRN
   statusCode:
     type: number
+    example:
+      200

@@ -1,5 +1,6 @@
 type: object
-title: Intenção Compra
+title: IntencaoCompra
+required: ["loja", "produtoList"]
 properties:
   tipoRetorno:
     description: Indica qual é a decisão que o hub deve tomar ao receber o retono dos pbms (sempre 1)
@@ -131,9 +132,10 @@ properties:
                 type: string
                 example:
                   "00000000"
-      termoWrapper:
+      termos:
         description: Objeto com as informações de aceite de termos
         type: object
+        required: ["aceiteIndustria"]
         properties:
           aceiteIndustria:
             description: Aceite do termo da industria

@@ -8,18 +8,18 @@ post:
     content:
       application/json:
         schema:
-          $ref: ../components/schemas/carrinho.yaml
+          $ref: ../components/schemas/pre_autorizacao.yaml
     required: true
   responses:
     200:
-      description: carrinho salvo com sucesso
+      description: Pre-autorizacao realizada com sucesso
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/response_carrinho.yaml
-    428:
-      description: ocorreu erro ao salvar o carrinho
+            $ref: ../components/schemas/responses/pre_autorizacao_200.yaml
+    400:
+      description: Conferir os campos obrigatórios
       content:
         application/json:
           schema:
-            $ref: ../components/schemas/response_carrinho.yaml
+            $ref: ../components/schemas/responses/generic_400.yaml

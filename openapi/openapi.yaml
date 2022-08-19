@@ -13,12 +13,18 @@ tags:
     description: Pre-autorizar os produtos que se encontram no carrinho do cliente para buscar os descontos atuais dos laboratórios.
   - name: Confirmar Pré-autorizacao
     description: Confirmar os produtos pré-autorizados no carrinho.
+  - name: Autorizacao
+    description: Encerrar o fluxo de venda confirmando ou cancelando a venda
 servers:
   - url: 'https://example.com/api'
 paths:
   /hubIntencaoCompra:
-    $ref: paths/intencaoCompra.yaml
+    $ref: paths/intencao_compra.yaml
   /hubPreAutorizar:
-    $ref: paths/carrinho.yaml
+    $ref: paths/pre_autorizacao.yaml
   /hubConfirmaPreAutorizar:
-    $ref: paths/efetiva.yaml
+    $ref: paths/confirma_pre_autorizacao.yaml
+  /hubAutorizar:
+    $ref: paths/autorizacao_post.yaml
+  /hubAutorizar/{id}:
+    $ref: paths/autorizacao_delete.yaml

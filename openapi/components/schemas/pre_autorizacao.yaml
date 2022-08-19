@@ -1,5 +1,6 @@
 type: object
-title: Pre-autorização
+title: PreAutorizacao
+required: ["loja", "cliente", "produtoList"]
 properties:
   tipoRetorno:
     description: Indica qual é a decisão que o hub deve tomar ao receber o retono dos pbms (sempre 1)

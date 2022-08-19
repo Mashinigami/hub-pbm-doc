@@ -1,0 +1,12 @@
+delete:
+  tags:
+    - Autorizacao
+  summary: Cancelar a venda.
+  description: Cancelar a venda enviando o id de transação.
+  parameters:
+    $ref: ../components/schemas/autorizacao_delete.yaml
+  responses:
+    200:
+      description: Sucesso ao cancelar a venda
+    400:
+      description: Id não informado

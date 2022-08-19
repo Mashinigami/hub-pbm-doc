@@ -1,0 +1,50 @@
+type: object
+title: IntencaoCompraDadosClienteResponse
+properties:
+  status:
+    type: string
+    enum:
+      - 428 PRECONDITION_REQUIRED
+  message:
+    type: string
+    description: Mensagem geral sobre o processamento da chamada
+  messages:
+    type: array
+    description: Mensagens de problemas da request
+    items:
+      type: string
+  data:
+    type: object
+    properties:
+      cliente:
+        description: Informações referente a cliente
+        type: object
+        properties:
+          termos:
+            description: Objeto com as informações de aceite de termos
+            type: object
+            properties:
+              urlAceiteTermo:
+                description: Url para aceite do termo lgpd
+                type: string
+                example:
+                  "http://example.com.br/lgpd"
+  requiredFields:
+    type: array
+    items:
+      type: object
+      properties:
+        field:
+          type: string
+          description: Nome do campo obrigatório
+        type:
+          type: string
+          description: Tipo do campo
+  pbm:
+    type: string
+    enum:
+      - TRN
+  statusCode:
+    type: number
+    example:
+      428
