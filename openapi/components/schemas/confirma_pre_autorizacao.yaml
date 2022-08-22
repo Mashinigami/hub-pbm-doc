@@ -38,21 +38,22 @@ properties:
   cliente:
     description: Informações referente a cliente
     type: object
-    required: ["cpfCnpj"]
+    required: ["TRN"]
     properties:
-      cpfCnpj:
-        description: Cpf/cnpj do cliente sem pontuação
-        type: string
-        example:
-          "96740081794"
-      convenioClienteWrapper:
-        description: Objeto com as informações do cliente referente à operadora de convênio
+      TRN:
+        description: Objeto com informações do cliente referente à operadora TRN
         type: object
-        required: ["TRN"]
+        required: ["convenioClienteWrapper"]
         properties:
-          TRN:
-            description: Objeto com informações do cliente referente à operadora TRN
+          convenioClienteWrapper:
+            description: Objeto com as informações do cliente referente à operadora de convênio
             type: object
+            required: ["TRN"]
             properties:
-              folhaPagamento:
-                description: Indicador de desconto em folha, 0 - não, 1 - sim (se sim, os campos cartao e operadora são obrigatórios com o tipoCadastro = 1, no fluxo pre-autorizacao)
+              TRN:
+                description: Objeto com informações do cliente referente à operadora TRN
+                type: object
+                properties:
+                  folhaPagamento:
+                    description: Indicador de desconto em folha, 0 - não, 1 - sim (se sim, os campos cartao e operadora são obrigatórios com o tipoCadastro = 1, no fluxo pre-autorizacao)
+                    type: number

@@ -5,6 +5,14 @@ retornos com a descrição das variáveis (dos requests e responses) tal como ex
 
 ## Versões doc
 
+### 2.1.4
+
+- Removido variavel cliente.cpfCnpj, no envio da confirmação pre-autorização
+- Adicionado variavel cliente.TRN, no envio da confirmação pre-autorização
+- Movido variavel cliente.convenioClienteWrapper para dentro da variavel cliente.TRN, ficando cliente.TRN.convenioClienteWrapper, 
+no envio da confirmação da pre-autorização
+- Adicionado informação de todos os campos previstos no cadastro do cliente
+
 ### 2.1.3
 
 - Alterado tipo da variavel canalSolicitante de number para string
@@ -65,3 +73,30 @@ refeita com o novo carrinho atualizado, é retornado um id que será usado na ch
 Após a confirmação do final da venda deve ser enviado a confirmação do id do carrinho retornado na ultima
 etapa, junto do corpo da mensagem caso seja uma venda com desconto em folha, deve ser informado a variavel
 **folhaPagamento = 1**
+
+## Autorização
+
+Após o faturamento da venda deve ser feito a autorização enviando o id para o endpoints de autorização, caso a 
+venda não tenha sido finalizada enviar uma chamada para o endpoint de cancelamento (verbo Delete)
+
+## Campos cadastro cliente
+
+- cpf
+- data de nascimento
+- nome completo
+- genero
+- cep
+- unidade federativa
+- cidade
+- bairro
+- tipo do endereço (rua, avenida,...)
+- logradouro
+- numero
+- complemento
+- telefone
+- email
+- aceito dos termos (industria, material informativo,...)
+- tipo do profissional de saude (CRM, CRO)
+- codigo do profissional de saude
+- estado do profissional de saude
+- nome do profissional de saude
