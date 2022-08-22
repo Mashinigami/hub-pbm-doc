@@ -17,10 +17,10 @@ properties:
         example:
           "01234567000100"
       canalSolicitante:
-        description: Canal solicitante do HUB (sempre 2)
-        type: number
+        description: Canal solicitante do HUB
+        type: string
         example:
-          2
+          "SITE"
       comunicacao:
         description: Informações de controle de pbm
         type: object
