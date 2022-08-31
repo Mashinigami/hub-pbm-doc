@@ -3,6 +3,7 @@ post:
     - Autorizacao
   summary: Finalizar a venda enviando os dados da nota fiscal.
   description: Reponsável por encerrar a venda confirmando a mesma e enviando os dados de nota fiscal
+  operationId: hubAutorizar
   requestBody:
     content:
       application/json:

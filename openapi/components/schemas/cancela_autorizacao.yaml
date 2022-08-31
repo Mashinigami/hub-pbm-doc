@@ -1,6 +1,6 @@
 type: object
-title: Autorizacao
-required: ["id", "loja", "cliente", "cupom"]
+title: CancelaPreAutorizacao
+required: ["id", "loja", "cliente"]
 properties:
   id:
     description: Identificação do carrinho retornado anteriormente do HUB
@@ -10,6 +10,7 @@ properties:
   loja:
     description: Informações referente a Loja que fez a solicitação
     type: object
+    required: ["comunicacao", "canalSolicitante"]
     properties:
       cnpj:
         description: CNPJ Loja sem pontuação
@@ -38,28 +39,22 @@ properties:
   cliente:
     description: Informações referente a cliente
     type: object
-    required: ["cpfCnpj"]
+    required: ["TRN"]
     properties:
-      cpfCnpj:
-        description: Cpf/cnpj do cliente sem pontuação
-        type: string
-        example:
-          "96740081794"
-      convenioClienteWrapper:
-        description: Objeto com as informações do cliente referente à operadora de convênio
+      TRN:
+        description: Objeto com informações do cliente referente à operadora TRN
         type: object
-        required: ["TRN"]
+        required: ["convenioClienteWrapper"]
         properties:
-          TRN:
-            description: Objeto com informações do cliente referente à operadora TRN
+          convenioClienteWrapper:
+            description: Objeto com as informações do cliente referente à operadora de convênio
             type: object
-  cupom:
-    description: Informações da venda
-    type: object
-    properties:
-      chave:
-        type: string
-        description: Chave da nota fiscal
-      tipoChave:
-        type: number
-        description: Tipo da chave (0 - NFCE, 1 - NFE)
+            required: ["TRN"]
+            properties:
+              TRN:
+                description: Objeto com informações do cliente referente à operadora TRN
+                type: object
+                properties:
+                  folhaPagamento:
+                    description: Indicador de desconto em folha, 0 - não, 1 - sim (se sim, os campos cartao e operadora são obrigatórios com o tipoCadastro = 1, no fluxo pre-autorizacao)
+                    type: number

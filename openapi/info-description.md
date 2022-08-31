@@ -5,12 +5,18 @@ retornos com a descrição das variáveis (dos requests e responses) tal como ex
 
 ## Versões doc
 
+### 2.1.5
+
+- Alterado endpoint responsável por fazer o cancelamento de venda.
+  O novo endpoint para cancelamento de venda é hubCancelarAutorizacao.
+- Alterado valor exemplo variavel canalSolicitante, anteriormente "SITE", agora "ECOMMERCE"
+
 ### 2.1.4
 
 - Removido variavel cliente.cpfCnpj, no envio da confirmação pre-autorização
 - Adicionado variavel cliente.TRN, no envio da confirmação pre-autorização
-- Movido variavel cliente.convenioClienteWrapper para dentro da variavel cliente.TRN, ficando cliente.TRN.convenioClienteWrapper, 
-no envio da confirmação da pre-autorização
+- Movido variavel cliente.convenioClienteWrapper para dentro da variavel cliente.TRN, ficando cliente.TRN.convenioClienteWrapper,
+  no envio da confirmação da pre-autorização
 - Adicionado informação de todos os campos previstos no cadastro do cliente
 
 ### 2.1.3
@@ -54,17 +60,19 @@ Caso seja informado os dados do comprador, o sistema fará a consulta de descont
 nessa etapa é esperado alguns possíveis retornos:
 
 #### Aceite termo lgpd
-Pode ser retornado na variavel urlAceiteTermo um link para que o comprador aceite o termo lgpd 
+
+Pode ser retornado na variavel urlAceiteTermo um link para que o comprador aceite o termo lgpd
 
 #### Solicitação de dados adicionais
-Um segundo caso seria a necessidade de dados adicionais do comprador para autorização com o laboratório, caso não tenha sido enviado,
-os campos são informados em resposta caso seja enviado pelo menos o cpf e/ou cartão do programa. 
 
-Nesses casos deve ser refeito a chamada de intenção de compra com os dados necessários ou aceite do termo realizado. 
+Um segundo caso seria a necessidade de dados adicionais do comprador para autorização com o laboratório, caso não tenha sido enviado,
+os campos são informados em resposta caso seja enviado pelo menos o cpf e/ou cartão do programa.
+
+Nesses casos deve ser refeito a chamada de intenção de compra com os dados necessários ou aceite do termo realizado.
 
 ## Pré-autorização
 
-Nessa etapa devem ser enviados os produtos que o cliente aceitou, preencheu os requisitos, e retornaram com sucesso 
+Nessa etapa devem ser enviados os produtos que o cliente aceitou, preencheu os requisitos, e retornaram com sucesso
 da chamada de intenção de compra, caso o cliente mude alguma coisa no carrinho de compra, essa chamada deve ser
 refeita com o novo carrinho atualizado, é retornado um id que será usado na chamada de confirmação.
 
@@ -76,7 +84,7 @@ etapa, junto do corpo da mensagem caso seja uma venda com desconto em folha, dev
 
 ## Autorização
 
-Após o faturamento da venda deve ser feito a autorização enviando o id para o endpoints de autorização, caso a 
+Após o faturamento da venda deve ser feito a autorização enviando o id para o endpoints de autorização, caso a
 venda não tenha sido finalizada enviar uma chamada para o endpoint de cancelamento (verbo Delete)
 
 ## Campos cadastro cliente

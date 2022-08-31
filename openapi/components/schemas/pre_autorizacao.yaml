@@ -21,7 +21,7 @@ properties:
         description: Canal solicitante do HUB
         type: string
         example:
-          "SITE"
+          "ECOMMERCE"
       comunicacao:
         description: Informações de controle de pbm
         type: object

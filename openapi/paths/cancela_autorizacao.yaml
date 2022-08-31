@@ -1,0 +1,25 @@
+post:
+  tags:
+    - Cancelar Autorização
+  summary: Cancela todas as operações pendentes
+  description:  Reponsável por cancelar todos os fluxos pendentes (tais como confirmação e carrinho) com o id passado como parâmetro
+  operationId: hubCancelarAutorizacao
+  requestBody:
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/cancela_autorizacao.yaml
+    required: true
+  responses:
+    200:
+      description: Cancelamento de transações pendentes efetuado com sucesso
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/responses/cancela_autorizacao_200.yaml
+    400:
+      description: Erro ao efetuar cancelamento de transações pendentes
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/responses/generic_400.yaml

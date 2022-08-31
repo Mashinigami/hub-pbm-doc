@@ -21,7 +21,7 @@ properties:
         description: Canal solicitante do HUB
         type: string
         example:
-          "SITE"
+          "ECOMMERCE"
       comunicacao:
         description: Informações de controle de pbm
         type: object
@@ -78,6 +78,11 @@ properties:
         type: string
         example:
           "99074000"
+      uf:
+        description: Estado do cliente
+        type: string
+        example:
+          "RS"
       cidade:
         description: Cidade do cliente
         type: string
