@@ -76,6 +76,9 @@ properties:
                     percentualDesconto:
                       type: number
                       description: Percentual desconto Concedido
+                    valorSubsidio:
+                      type: number
+                      description: Valor Subsidio
                     status:
                       type: number
                       description: status do produto indicando aprovação do pedido

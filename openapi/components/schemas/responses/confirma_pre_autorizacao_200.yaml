@@ -119,9 +119,9 @@ properties:
                     valorDescontoAdicionalMultiplicado:
                       type: number
                       description: Valor desconto adicional multiplicado
-                    percentualDescontoUnitario:
+                    valorDescontoUnitario:
                       type: number
-                      description: Percentual desconto unitario
+                      description: Valor desconto unitario
                     status:
                       type: number
                       description: status do produto indicando aprovação do pedido

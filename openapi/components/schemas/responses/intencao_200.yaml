@@ -72,7 +72,7 @@ properties:
                       description: Quantidade aprovado pelo convênio
                     valorDesconto:
                       type: number
-                      description: Valor desconto calculado pelo programa de PBM (em cima do valor bruto do produto)
+                      description: Valor desconto calculado pelo programa de PBM
                     percentualDesconto:
                       type: number
                       description: Percentual desconto concedido
@@ -84,12 +84,15 @@ properties:
                       description: Mensagem de retorno
                     obrigatorioCpf:
                       type: number
+                      nullable: true
                       description: Obrigado informar cpf para autorizar esse produto (0 - não, 1 - sim)
                     obrigatorioCupom:
                       type: number
+                      nullable: true
                       description: Obrigado informar cupom para autorizar esse produto (0 - não, 1 - sim)
                     permiteAdesao:
                       type: number
+                      nullable: true
                       description: Se produto permite adesao (0 - não, 1 - sim)
                     status:
                       type: number

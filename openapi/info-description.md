@@ -10,6 +10,8 @@ retornos com a descrição das variáveis (dos requests e responses) tal como ex
 - Alterado endpoint responsável por fazer o cancelamento de venda.
   O novo endpoint para cancelamento de venda é hubCancelarAutorizacao.
 - Alterado valor exemplo variavel canalSolicitante, anteriormente "SITE", agora "ECOMMERCE"
+- Renomeado variavel data.produtoList[].produtoRetornoMap.TRN.percentualDescontoUnitario para
+  data.produtoList[].produtoRetornoMap.TRN.valorDescontoUnitario
 
 ### 2.1.4
 
