@@ -12,11 +12,6 @@ properties:
     type: object
     required: ["comunicacao", "canalSolicitante"]
     properties:
-      cnpj:
-        description: CNPJ Loja sem pontuação
-        type: string
-        example:
-          "01234567000100"
       canalSolicitante:
         description: Canal solicitante do HUB
         type: string

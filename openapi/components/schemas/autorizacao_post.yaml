@@ -11,11 +11,6 @@ properties:
     description: Informações referente a Loja que fez a solicitação
     type: object
     properties:
-      cnpj:
-        description: CNPJ Loja sem pontuação
-        type: string
-        example:
-          "01234567000100"
       canalSolicitante:
         description: Canal solicitante do HUB
         type: string

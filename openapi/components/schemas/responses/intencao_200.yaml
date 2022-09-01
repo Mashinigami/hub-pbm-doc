@@ -31,9 +31,6 @@ properties:
         description: Informações referente a Loja que fez a solicitação
         type: object
         properties:
-          cnpj:
-            type: string
-            description: CNPJ Loja
           comunicacao:
             type: object
             description: Operadora do Convênio

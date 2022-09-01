@@ -5,6 +5,10 @@ retornos com a descrição das variáveis (dos requests e responses) tal como ex
 
 ## Versões doc
 
+### 2.1.6
+
+- Removido variavel loja.cnpj em todas as requests
+
 ### 2.1.5
 
 - Alterado endpoint responsável por fazer o cancelamento de venda.
