@@ -10,6 +10,7 @@ retornos com a descrição das variáveis (dos requests e responses) tal como ex
 - Removido variavel loja.cnpj em todas as requests
 - Atualizado descrição produtoList[].precoBruto
 - Atualizado descrição produtoList[].precoLiquido
+- Adicionado variavel retorno data.status.TRN.status
 
 ### 2.1.5
 
@@ -94,6 +95,10 @@ etapa, junto do corpo da mensagem caso seja uma venda com desconto em folha, dev
 
 Após o faturamento da venda deve ser feito a autorização enviando o id para o endpoints de autorização, caso a
 venda não tenha sido finalizada enviar uma chamada para o endpoint de cancelamento (verbo Delete)
+
+## Status da transação
+
+A variavel data.status.TRN.status irá indicar o que aconteceu com a solicitação realizada no pbm 
 
 ## Campos cadastro cliente
 

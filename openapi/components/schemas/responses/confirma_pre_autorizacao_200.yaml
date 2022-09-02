@@ -136,6 +136,18 @@ properties:
             description: retornos apresentados pelo programa de pbm
             items:
               type: string
+      status:
+        type: object
+        description: Informações de produtos
+        properties:
+          TRN:
+            type: object
+            properties:
+              status:
+                type: string
+                description: identifica status da transação em cima do retorno apresentado pelo programa de PBM
+                              (CONFIRMADO, CLIENTESEMCADASTRO, NEGADO, AUTORIZADO, CANCELADO, NAOEXISTENTE)
+                example: 'AUTORIZADO'
   pbm:
     type: string
     enum:

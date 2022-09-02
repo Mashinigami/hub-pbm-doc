@@ -88,6 +88,18 @@ properties:
             msgRetorno:
               type: string
               description: Informa o retorno da consulta do produto, Ex. proxima consulta infomar cpf
+      status:
+        type: object
+        description: Informações de produtos
+        properties:
+          TRN:
+            type: object
+            properties:
+              status:
+                type: string
+                description: identifica status da transação em cima do retorno apresentado pelo programa de PBM
+                              (CONFIRMADO, CLIENTESEMCADASTRO, NEGADO, AUTORIZADO, CANCELADO, NAOEXISTENTE)
+                example: 'CLIENTESEMCADASTRO'
   pbm:
     type: string
     enum:
