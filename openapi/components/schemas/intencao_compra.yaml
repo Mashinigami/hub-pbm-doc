@@ -184,13 +184,13 @@ properties:
           example:
             4
         precoBruto:
-          description: Preço bruto do produto
+          description: Preço bruto unitario do produto
           type: number
           format: float
           example:
             50.99
         precoLiquido:
-          description: Preço liquido do produto
+          description: Preço liquido unitario do produto
           type: number
           format: float
           example:

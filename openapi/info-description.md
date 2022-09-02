@@ -8,6 +8,8 @@ retornos com a descrição das variáveis (dos requests e responses) tal como ex
 ### 2.1.6
 
 - Removido variavel loja.cnpj em todas as requests
+- Atualizado descrição produtoList[].precoBruto
+- Atualizado descrição produtoList[].precoLiquido
 
 ### 2.1.5
 
