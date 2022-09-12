@@ -52,10 +52,10 @@ properties:
             type: object
             properties:
               tipoCadastro:
-                description: (0-Programa 1-Empresa Convenio 2-Operadora de Saude)
+                description: (0-Programa 1-Empresa Convenio 2-Operadora de Saude 3-Cpf)
                 type: number
-                example:
-                  0
+                example: 3
+                default: 3
               cartao:
                 description: Cartão do programa, ou matricula da empresa consumidor, ou cartão do consumidor na Operadora de Saúde
                 type: string
